@@ -1,0 +1,10 @@
+[project]
+name = "tray-light"
+version = "0.1.0"
+description = "Windows 三色灯系统托盘 - 支持 light red/green/yellow 命令计数"
+requires-python = ">=3.12"
+dependencies = [
+    "pillow>=12.2.0",
+    "pystray>=0.19.5",
+    "plyer>=2.1",
+]
