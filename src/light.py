@@ -6,9 +6,11 @@ import time
 import socket
 
 try:
-    from plyer import notification
+    from windows_toasts import WindowsToaster, Toast
+    _toaster = WindowsToaster("tray-light")
     _notify = True
 except Exception:
+    _toaster = None
     _notify = False
 
 PORT = 18765
@@ -64,9 +66,11 @@ def update_icon(icon):
     icon.title = f"{name}: {info['count']}"
 
 def show_notification(title, message):
-    if _notify:
+    if _notify and _toaster is not None:
         try:
-            notification.notify(title=title, message=message, timeout=3)
+            toast = Toast()
+            toast.text_fields = [title, message]
+            _toaster.show_toast(toast)
         except Exception:
             pass
 
