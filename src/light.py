@@ -85,8 +85,6 @@ def handle_signal(line):
             color = line[1:]
             if COLORS[color]["count"] > 0:
                 COLORS[color]["count"] -= 1
-            new_count = COLORS[color]["count"]
-            show_notification("tray-light", f"{color}: -1 (当前 {new_count})")
             return True
     return False
 
